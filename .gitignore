@@ -1,0 +1,17 @@
+# Ignore OS-specific files (macOS, Windows)
+.DS_Store   # macOS specific
+Thumbs.db   # Windows specific
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore logs
+*.log
+
+# Ignore binary or compiled files (for languages like Go or C++)
+*.exe
+*.o
+*.out
+
+# Ignore environment variables and sensitive config files (for future use)
+.env
