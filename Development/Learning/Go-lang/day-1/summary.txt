@@ -1,0 +1,39 @@
+# 🟢 Day 1: Getting Started with Go (Golang)
+
+---
+
+## 🚀 Why Learn Go?
+Go (also called Golang) is a statically typed, compiled programming language created by Google.
+    It’s designed for simplicity, efficiency, and scalability, making it an ideal choice for the
+    system applications, cloud computing, web development, and more.
+
+### **Key Highlights of Go:**
+
+- **Compiled Language**: Go code compiles directly into machine code, resulting in fast execution
+    without the need for a virtual machine (like Java’s JVM). This means Go binaries are tailored for the
+    specific operating systems (Windows, macOS, Linux, etc.).
+  
+- **Cross-Platform**: You can build system apps, web apps, and cloud services that are easily portable across
+    operating systems without major changes.
+
+- **Minimalist Design**: Go omits features like generics (introduced in later versions), try-catch blocks,
+    and inheritance (as in other OOP languages). This intentional simplicity leads to faster compilation and
+    easier code maintenance. While Go doesn’t use typical exception handling (`try-catch`), it provides robust
+    error handling through return values and allows efficient garbage collection.
+
+- **Object-Oriented... Sort of**: Go supports object-oriented programming concepts but takes a different approach.
+    Instead of class-based inheritance, Go uses structs and interfaces to achieve flexibility and simplicity.
+
+---
+
+## 🔧 Installation & Setup
+
+1. **Download & Install Go**
+   - Visit the official website [https://golang.org/dl/](https://golang.org/dl/) and download the latest stable version for your OS.
+   - Follow the installation steps as per your operating system (Windows, macOS, Linux).
+
+2. **Verify Installation**
+   Open your terminal/command prompt and type:
+   ```bash "go version"
+
+3. **go mod init HelloWorld, its kind of "npm init" and then run the "go run file_name.go** 
