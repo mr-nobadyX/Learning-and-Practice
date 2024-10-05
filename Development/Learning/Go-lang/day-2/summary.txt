@@ -1,0 +1,71 @@
+ 
+ // ================== BasicDoc in goLang ================== \\
+ # Reading the Doc and Go PATH
+ # go help "cmd" any specific cmd u want to know more about
+ # go path:- GoPath env variable
+
+
+ // ================== Lexer in goLang ================== \\
+ The entity which detects and understand that u r follwing the grammer of the lan or not,
+ some u don't need to add ";" lexer automatically do it when u run the cmd and between going for compile
+
+
+ // ==================  DataTypes in goLang ================== \\
+ --- case insensitive; almost
+ --- variable-type should be know in advance
+ --- everything is a type
+
+ **** String, bool ****
+ **** Integer:- uint8, int8, uint64, int64 ****
+ **** Float:- float32, float64 ****
+ **** complex ****
+
+ **** Arrays, slices, Map, Structs, Pointers ****
+ **** Almost a everyThing a Fnx, Channels ****
+
+
+
+ // ==================  variables in goLang ================== \\
+ **** var var_name DataType = value ****
+
+ **** Default Value ****
+ "if we only create the variable not to initiolized it, lexer autoMetcially assign a un relevence value to it"
+
+ **** Aliases-ImplicitType ****
+ ---- var var_name = value ----
+
+ 
+ **** Aliases-No var Key ****
+ ---- var_name := value ":=" valorous opretors
+
+ Note:- We can define a Public variable, only be a condition like first char of var_name should be Capital
+
+
+### `bufio` and `bufio.NewReader(os.Stdin)` in Go
+
+#### What is `bufio`?
+`bufio` (Buffered I/O) is a Go package that provides efficient I/O operations through buffering. 
+   It improves performance by reducing the number of system calls during I/O operations
+   (like reading from files, user input, etc.).
+
+#### What is `bufio.NewReader(os.Stdin)`?
+`bufio.NewReader(os.Stdin)` creates a **buffered reader** that reads input from the console (standard input).
+ This is more efficient than reading byte-by-byte and provides convenient methods like `ReadString('\n')` 
+ to read input until a specific delimiter (e.g., newline).
+
+#### Example:
+```go
+reader := bufio.NewReader(os.Stdin)
+input, err := reader.ReadString('\n')
+if err != nil {
+    fmt.Println("Error:", err)
+}
+fmt.Println("You entered:", input)
+```
+
+- **`bufio.NewReader(os.Stdin)`**: Wraps `os.Stdin` (console input) in a buffered reader.
+- **`ReadString('\n')`**: Reads user input until a newline (`\n`), i.e., when the user presses "Enter".
+
+---
+
+This should be brief enough for your notes but still explain the core ideas!
