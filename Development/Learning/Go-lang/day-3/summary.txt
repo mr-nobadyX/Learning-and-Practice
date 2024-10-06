@@ -1,0 +1,56 @@
+// ======= Halding the Time ======= \\
+Go provide the time package where we can extensivally modify dates and other things
+
+// ======= Build a Aplication for Time managment or nothing i know about this ======= \\
+$env:GOOS = "windows"
+$env:GOARCH = "amd64"
+go build
+
+// ======= Memory Managment ======= \\
+** Memory alocation and decleartion happens autometically.
+
+New()
+-- Allocate memory but not init, just provide the pointer
+-- Zeroed stoaged, u can't put data initially\
+
+make()
+-- Allocation memory and init, Memory addresh "pointer" will be get
+-- non-0 stoaged, can put value initially
+
+## garbage collector autometically remore memory space when it no longer needed
+
+
+
+
+// ======= pointers in go Lang ======= \\
+** instead of passing of only copy we can pass the actual memory location addresh or refernce on memroy location
+   so that changes can effect originally **
+
+   var p *int  // Declares a pointer to an int
+
+   i := 10
+   p := &i  // p points to the address of i
+
+   *p = 20  // Changes the value of i to 20 through pointer p
+
+   func modify(ptr *int) 
+    *ptr = 100 
+
+
+
+// ======= Array in go lang ======= \\
+
+var arr [5]int  // Array of 5 integers, zero-initialized
+arr := [3]int{1, 2, 3}  // Array with explicit values
+
+
+arr[0] = 10  // Set the first element
+value := arr[1]  // Get the second element
+
+
+length := len(arr)  // Length of the array
+
+
+var matrix [3][3]int  // 2D array (3x3)
+matrix[0][1] = 5      // Set value in matrix
+
