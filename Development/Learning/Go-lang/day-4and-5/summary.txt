@@ -1,0 +1,34 @@
+// ========= Slices ======== \\
+-- The only diffrecnce between Array in go and Slice in go, slices have dyanmic size, where u don't need to define the size
+-- Additionally slices come with few inbuit method like appends and sort
+
+*** Syntex ***
+var var_name = []dataType{value according to dataType}
+
+--appends(), var_name = appends(var_name, appendbleValue, appendbleValue);
+
+-- taking a partion or slice of that actual slices
+var_name = appends(var_name[1--->Start, 3---> end, non-included]);
+
+** we can use make Method to create the slices
+var_name = make([]dataType, can define size as well)
+as soon as we use the append method its become the Slices
+
+
+-- remove a value from slices based on value
+** var index = 2;
+   var_name = append(var_name[:index], var_name[index+1:]) **
+
+
+** Maps ** in go like hash tables, used to store the unique key, value pairs
+var_name = make(map[keyDataType][valueDataType]);
+-- delete(var_name, "Key");
+
+
+** structs ** more like a alternative of Classes of other lan
+notes :- go does not have the inhreritence concepts
+
+used to define with "type" and struct{}
+
+
+

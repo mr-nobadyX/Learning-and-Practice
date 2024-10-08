@@ -21,7 +21,7 @@ type User struct {
 }
 
 func main() {
-	// fmt.Println("Namaste day-4and-5, Slices, Map, Structs")
+	// fmt.Println("")
 
 	var cars = []string{"Valvo", "Shift", "Thar"}
 	// fmt.Printf("Check DataType: %T \n", cars) // Proper format specifier usage
