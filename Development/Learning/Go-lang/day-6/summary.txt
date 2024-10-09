@@ -1,0 +1,112 @@
+// ========= Summary or Doc of today's Laerning ========= \\
+
+ *** If-else ***
+ -- condition-statement used to check the condition and according to that do exicute some work if condtion get flase
+    then do a exicute a statement
+ -- we can check multiple if condtions also :)
+
+ define a if-else
+ if condtions {
+
+ } else if condtions {
+
+ } else {
+
+ }
+ Note:= we can also declare a var at the place of condtion
+
+
+ *** Switch ***
+ -- according to multiple condtion we want to exicute the specific condtion
+
+ // switch diceNum {
+	// case 1:
+	// 	fmt.Println("1")
+	// case 2:
+	// 	fmt.Println("2")
+	// 	fallthrough, used to exicute the imediate one's task 
+	// case 3:
+	// 	fmt.Println("3")
+	// case 4:
+	// 	fmt.Println("4")
+	// 	fallthrough
+	// case 5:
+	// 	fmt.Println("5")
+	// case 6:
+	// 	fmt.Println("6")
+	// default: // is no case matches then this will be exicute
+	// 	fmt.Println("default, what have you entered bro :/")
+	// }
+
+
+ *** Loop ***
+ -- exicute a specific task for a each itreation till the condtion reachs
+ -- break used to kill the loop and stop the itreation
+ -- continue, exprect me itreation oon loop
+ -- goto, if condition {
+    goto labelName
+ }
+
+ labelName:
+    exicute
+
+ // defining the loop \\
+
+ for i:=0; i<10; i++{
+
+ }
+
+ or 
+
+ for i:= range Slices{
+
+ }
+
+ or if we want index and thire value
+
+ for idx,slice:= rand slice{
+
+ }
+
+
+
+// ****** Function ****** \\
+used to exicute the pice of pricise task
+func funx_name (){
+    exicute
+}
+
+or
+
+func with args and return type of func
+
+func funx_name (value DataType, value DataType) returnDataType {
+    exicute
+}
+
+or
+
+func with multiple agrugements and also we can return the multiple dataType value
+
+func funx_name(value ...DataType) (int, string){
+    return int, string
+}
+
+
+// ****** Method ****** \\
+A function associated or inside a structs
+
+-- defining and we can read and write (Write means only a copy will be chage, modification will not be reflect to mainFunx)
+func (u User // "struct" ) funx_name(){
+
+}
+
+
+// ****** Defer ****** \\
+-- A statement invokes a func exicution to the moment the sorroudning func return // like default syncronous way
+
+-- when you make a statement with defer its gona exicute at last of the program excuatio
+-- its works on LIFO
+
+
+
