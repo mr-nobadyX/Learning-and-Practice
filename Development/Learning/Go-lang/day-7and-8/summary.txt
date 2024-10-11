@@ -1,24 +1,35 @@
-package main
+// =============== Make an HTTP GET request to the URL =============== \\
 
-import (
-	"fmt"
-	"net/http"
-	"net/url" // Add this import for URL parsing
-)
+	// 'resp' will contain the response
+	// 'err' will contain any error that occurred
+	resp, err := http.Get("https://jsonplaceholder.typicode.com/posts/2")
 
-const MyURL = "https://jsonplaceholder.typicode.com/posts/2"
+	// Check if there was an error
+	if err != nil {
+		panic(err) // If there was an error, stop the program
+	}
 
-func main() {
-	fmt.Println("Namaste, Handling web request, handling URL in golang")
+	// defer means this line will run at the end of the function
+	// This ensures we close the response body and don't leak memory
+	defer resp.Body.Close()
 
-	// First, make the HTTP request
-	resp, err := http.Get(MyURL) // Changed 'url' to 'MyURL'
+	// Read all the content from the response body
+	// 'content' will contain the data as a slice of bytes
+	content, err := ioutil.ReadAll(resp.Body)
+
+	// Check for errors again
 	if err != nil {
 		panic(err)
 	}
-	defer resp.Body.Close()
 
-	// ====== handling URL in golang ====== \\
+	// Convert the bytes to a string and print it
+	fmt.Println(string(content))
+
+
+
+
+
+// ====== handling URL in golang ====== \\
 
 	// Parse the URL to get its components
 	parsedURL, err := url.Parse("https://example.com/path?key=value") // Parse the URL using url.Parse
@@ -51,4 +62,4 @@ func main() {
 	urlString := newURL.String()
 
 	fmt.Println(urlString)
-}
+
