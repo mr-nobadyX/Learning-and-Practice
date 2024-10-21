@@ -7,8 +7,15 @@ func main() {
 
 	// Doc reads
 	learnDoc()
+
+	// geet
+	greet()
 }
 
 func learnDoc() {
 	fmt.Print("Readed Documentions")
+}
+
+func greet() {
+	fmt.Print("Namaste From Sanjay")
 }
