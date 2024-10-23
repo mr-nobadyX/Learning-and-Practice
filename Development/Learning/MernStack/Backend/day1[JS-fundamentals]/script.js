@@ -1,6 +1,7 @@
 // ===== JavaScript Fundamentals ===== //
 
 // 1. ARRAYS AND OBJECTS
+console.log("JS Fundamentals");
 // Arrays are ordered collections of values, indexed from 0
 // They can store any type of data: numbers, strings, objects, even other arrays
 const arr = [1, 2, 3];
