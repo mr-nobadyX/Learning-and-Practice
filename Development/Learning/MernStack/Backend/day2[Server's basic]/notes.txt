@@ -1,0 +1,17 @@
+
+// Introducation to Node js
+// Installing Node.js and npm
+
+// node & npm
+// Working node & npm
+// npm init (to genrate package.json which is lekha jokha of the project)
+// node basic usage
+
+// working with modules
+
+// File System opreations (write appendfile copyfile rename unlink)
+// understanding HTTP Module
+
+
+// Node Js is not a lang, framework or library, just a runtime envirment
+// ryan dahl backend shoould be developed by js
