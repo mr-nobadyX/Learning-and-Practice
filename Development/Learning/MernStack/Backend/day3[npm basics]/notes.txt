@@ -1,0 +1,7 @@
+// when we make some custom scprit cmd to run or exicute the task we sholud have to write the "Run"
+// start and test are the defalut which exicute the script file 
+
+// NPM "Node Package Manager" 
+
+// packages- which we dowlaod from npm
+// module which come predowlaodlly with nodejs
