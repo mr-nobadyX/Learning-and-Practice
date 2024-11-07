@@ -12,6 +12,8 @@ app.get("/about", (req, res, next)=>{
     return next(new error("something went wrong"))
 })
 
+ 
+
 app.use((err, req, res, next)=>{
     console.error(err.stack)
     res.send(500).send("something went wrong kf wsj sfcsd hf")
@@ -19,3 +21,4 @@ app.use((err, req, res, next)=>{
 
 // will listen your request to this port
 app.listen(3000)
+
