@@ -1,7 +1,7 @@
 # Express.js: Sessions, Cookies, and Form Data Handling
 
 ## Middleware Breakdown
-```javascript
+```
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 ```
@@ -60,7 +60,7 @@ app.use(express.urlencoded({extended:true}));
 - Sanitize and validate all input data
 
 ## Code Example
-```javascript
+```
 const express = require('express');
 const session = require('express-session');
 

@@ -10,8 +10,6 @@
 // error handling 
 // special route for specifically handling the error
 
-Understood, here are the revision notes with code snippets:
-
 - Express.js is a Node.js web application framework:
   ```
   const express = require('express');
