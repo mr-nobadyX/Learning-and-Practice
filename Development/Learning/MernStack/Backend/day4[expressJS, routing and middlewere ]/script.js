@@ -11,9 +11,7 @@ app.get("/", function(req,res){
 app.get("/about", (req, res, next)=>{
     return next(new error("something went wrong"))
 })
-
  
-
 app.use((err, req, res, next)=>{
     console.error(err.stack)
     res.send(500).send("something went wrong kf wsj sfcsd hf")

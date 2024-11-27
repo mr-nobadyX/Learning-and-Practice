@@ -1,5 +1,5 @@
 // Express is a node package which have a set of rules and regulations.
-// Manages everything from receiving the request and giving the response
+// Manages everything from receiving the request and giving the dynamic response
 
 // Setting us a basic epress aplication.
 // basic routing creating
@@ -13,13 +13,13 @@
 Understood, here are the revision notes with code snippets:
 
 - Express.js is a Node.js web application framework:
-  ```javascript
+  ```
   const express = require('express');
   const app = express();
   ```
 
 - It handles receiving requests and generating responses:
-  ```javascript
+  ```
   app.get('/', (req, res) => {
     res.send('Hello, World!');
   });
@@ -34,7 +34,7 @@ Understood, here are the revision notes with code snippets:
   6. Implement error handling
 
 - Routing in Express:
-  ```javascript
+  ```
   app.get('/users', (req, res) => {
     res.send('Users page');
   });
@@ -45,7 +45,7 @@ Understood, here are the revision notes with code snippets:
   ```
 
 - Middleware functions:
-  ```javascript
+  ```
   app.use(express.json()); // Parse JSON request bodies
   app.use((req, res, next) => {
     console.log('Request received');
@@ -54,7 +54,7 @@ Understood, here are the revision notes with code snippets:
   ```
 
 - Error handling in Express:
-  ```javascript
+  ```
   app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something went wrong!');
@@ -62,10 +62,8 @@ Understood, here are the revision notes with code snippets:
   ```
 
 - Special routes for error handling:
-  ```javascript
+  ```
   app.use((req, res) => {
     res.status(404).send('Page not found');
   });
   ```
-
-Let me know if you need any clarification or have additional questions!
