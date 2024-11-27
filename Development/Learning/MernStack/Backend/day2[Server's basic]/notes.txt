@@ -1,17 +1,106 @@
+# Node.js Comprehensive Guide
 
-// Introducation to Node js
-// Installing Node.js and npm
+## Introduction to Node.js
+- Runtime environment for executing JavaScript on server-side
+- Created by Ryan Dahl in 2009
+- Allows backend development using JavaScript
+- Built on Chrome's V8 JavaScript engine
 
-// node & npm
-// Working node & npm
-// npm init (to genrate package.json which is lekha jokha of the project)
-// node basic usage
+## Installation
+### Node.js & npm Setup
+1. Download from official website: nodejs.org
+2. Verify installation
+```bash
+node --version
+npm --version
+```
 
-// working with modules
+## Node.js Core Concepts
 
-// File System opreations (write appendfile copyfile rename unlink)
-// understanding HTTP Module
+### Runtime Environment
+- Not a language, framework, or library
+- JavaScript runtime outside browser
+- Enables server-side scripting
+- Event-driven, non-blocking I/O model
 
+### npm (Node Package Manager)
+- Package management system
+- Installs libraries and dependencies
+- Manages project configurations
 
-// Node Js is not a lang, framework or library, just a runtime envirment
-// ryan dahl backend shoould be developed by js
+### Project Initialization
+```bash
+# Create package.json
+npm init -y
+```
+
+### Basic Node Usage
+```javascript
+console.log("Hello Node.js!");
+```
+
+## Module System
+
+### Types of Modules
+1. Core Modules
+2. Local Modules
+3. Third-party Modules
+
+### Module Implementation
+```javascript
+// Exporting
+module.exports = {
+  function1: () => {},
+  variable: 'value'
+};
+
+// Importing
+const myModule = require('./mymodule');
+```
+
+## File System Operations
+```javascript
+const fs = require('fs');
+
+// Write File
+fs.writeFile('example.txt', 'Content', (err) => {});
+
+// Append File
+fs.appendFile('example.txt', 'More content', (err) => {});
+
+// Copy File
+fs.copyFile('source.txt', 'destination.txt', (err) => {});
+
+// Rename File
+fs.rename('oldname.txt', 'newname.txt', (err) => {});
+
+// Delete File
+fs.unlink('file.txt', (err) => {});
+```
+
+## HTTP Module
+```javascript
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World');
+});
+
+server.listen(3000, () => {
+  console.log('Server running');
+});
+```
+
+## Key Principles
+- Asynchronous programming
+- Event-driven architecture
+- Single-threaded with event loop
+- Non-blocking I/O operations
+
+## Best Practices
+- Use async/await
+- Handle errors
+- Modularize code
+- Use environment variables
+- Implement proper logging

@@ -1,15 +1,158 @@
-Day 6: EJS, Dynamic Routing, and Initializing the Project
+### Day 6: EJS, Dynamic Routing, and Initializing the Project
 
-Initialize a project called "Small Practice Act" with npm.
-Install Express.
-Setting up express and basic route
-
-Set up parsers for forms.
-Configure EJS (Embedded JavaScript Templating) for EJS pages.
-set up ejs for view engine 
-
-Set up public static files.
+1. Initialize a project called "Small Practice Act" with npm.
+2. Install Express.
+3. Set up Express and basic routing.
+4. Set up parsers for forms.
+5. Configure EJS (Embedded JavaScript Templating) for EJS pages.
+6. Set EJS as the view engine.
+7. Set up public static files.
 
 Dynamic Routing:
-"How to get data coming from the frontend to the backend route."
 
+- How to get data from the frontend to the backend route.
+
+
+# Express.js Project Setup with EJS and Dynamic Routing
+
+## 1. Project Initialization
+### Purpose: Set up a new Node.js project with necessary dependencies
+```bash
+# Create project directory
+mkdir small-practice-act
+cd small-practice-act
+
+# Initialize npm project (creates package.json)
+npm init -y
+
+# Install core dependencies
+npm install express ejs
+```
+**Key Points:**
+- `npm init -y` generates default project configuration
+- Express provides web server functionality
+- EJS enables dynamic HTML templating
+
+## 2. Express Server Configuration
+### Purpose: Create basic server setup with middleware and configurations
+```javascript
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+// Middleware for parsing request bodies
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Configure EJS as view engine
+app.set('view engine', 'ejs');
+
+// Serve static files from 'public' directory
+app.use(express.static('public'));
+
+// Basic root route
+app.get('/', (req, res) => {
+  res.render('index', { 
+    title: 'Home Page', 
+    message: 'Welcome to our application!' 
+  });
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+```
+**Middleware Explanation:**
+- `express.json()`: Parses JSON payloads
+- `express.urlencoded()`: Parses form data
+- `app.set('view engine', 'ejs')`: Enables EJS templates
+- `express.static()`: Serves static files like CSS, client-side JS
+
+## 3. Dynamic Routing Techniques
+### Purpose: Handle different types of route parameters and data passing
+```javascript
+// Route with URL parameter
+app.get('/user/:id', (req, res) => {
+  const userId = req.params.id;
+  // Fetch user data based on ID
+  res.render('user', { 
+    userId: userId,
+    userData: getUserFromDatabase(userId)
+  });
+});
+
+// Form submission handling
+app.post('/submit', (req, res) => {
+  const { username, email } = req.body;
+  // Process form data
+  saveUserToDatabase(username, email);
+  res.redirect('/success');
+});
+
+// Query parameter routing
+app.get('/search', (req, res) => {
+  const searchQuery = req.query.q;
+  const results = performSearch(searchQuery);
+  
+  res.render('search', { 
+    query: searchQuery, 
+    searchResults: results 
+  });
+});
+```
+**Routing Concepts:**
+- `:id` in route path creates dynamic segments
+- `req.params` accesses route parameters
+- `req.body` contains form submission data
+- `req.query` retrieves URL query parameters
+
+## 4. EJS Template Example
+### Purpose: Demonstrate dynamic content rendering
+```ejs
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= message %></h1>
+  
+  <% if (users && users.length > 0) { %>
+    <ul>
+      <% users.forEach(user => { %>
+        <li><%= user.name %> - <%= user.email %></li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>No users found</p>
+  <% } %>
+</body>
+</html>
+```
+**EJS Templating Features:**
+- `<%= %>` outputs escaped HTML
+- `<% %>` executes JavaScript logic
+- Conditionals and loops supported directly in template
+
+## Project Structure Recommendation
+```
+small-practice-act/
+├── public/
+│   ├── css/
+│   └── js/
+├── views/
+│   ├── index.ejs
+│   ├── user.ejs
+│   └── search.ejs
+├── package.json
+└── app.js
+```
+
+## Best Practices
+- Use middleware for request preprocessing
+- Implement error handling
+- Separate routing logic
+- Keep views minimal and logic-free
+- Use environment variables for configuration
