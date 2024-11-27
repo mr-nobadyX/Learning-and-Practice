@@ -1,0 +1,94 @@
+# Express.js: Sessions, Cookies, and Form Data Handling
+
+## Middleware Breakdown
+```javascript
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+```
+
+### `express.json()`
+- Parses incoming JSON payloads
+- Populates `req.body` with parsed JSON data
+- Essential for handling JSON request bodies
+- Automatically handles Content-Type: application/json
+
+### `express.urlencoded()`
+- Parses URL-encoded form data
+- `{extended: true}` allows parsing of nested objects
+- Populates `req.body` with form data
+- Handles Content-Type: application/x-www-form-urlencoded
+
+## Sessions and Cookies: Core Concepts
+
+### Cookies
+- Small text files stored on client-side
+- Sent with every HTTP request
+- Used for maintaining state and user information
+- Types:
+  - Session Cookies: Temporary, deleted when browser closes
+  - Persistent Cookies: Remain until expiration
+
+### Sessions
+- Server-side storage of user-specific data
+- Unique session ID stored in cookie
+- Maintains user state across requests
+- Typical implementation using `express-session`
+
+#### Session Workflow
+1. User logs in
+2. Server generates unique session ID
+3. Session ID stored in cookie
+4. Server stores session data
+5. Subsequent requests include session ID
+
+## Form Data Handling Strategies
+
+### Client-Side
+- `<form>` submissions
+- `fetch()` / `axios` requests
+- `FormData` object for complex submissions
+
+### Server-Side
+- `req.body`: Parsed form data
+- `req.params`: URL route parameters
+- `req.query`: URL query string parameters
+
+## Security Considerations
+- Use HTTPS for cookie transmission
+- Set secure and HttpOnly flags
+- Implement CSRF protection
+- Sanitize and validate all input data
+
+## Code Example
+```javascript
+const express = require('express');
+const session = require('express-session');
+
+const app = express();
+
+// Middleware for parsing
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Session configuration
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
+
+// Form handling route
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  // Authentication logic
+  req.session.user = username;
+});
+```
+
+## Interview Quick Tips
+- Explain middleware purpose
+- Distinguish between JSON and URL-encoded parsing
+- Understand session management
+- Know cookie types and use cases
+- Highlight security practices
