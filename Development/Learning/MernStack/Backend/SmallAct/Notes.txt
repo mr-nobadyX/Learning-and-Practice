@@ -1,0 +1,15 @@
+Day 6: EJS, Dynamic Routing, and Initializing the Project
+
+Initialize a project called "Small Practice Act" with npm.
+Install Express.
+Setting up express and basic route
+
+Set up parsers for forms.
+Configure EJS (Embedded JavaScript Templating) for EJS pages.
+set up ejs for view engine 
+
+Set up public static files.
+
+Dynamic Routing:
+"How to get data coming from the frontend to the backend route."
+
