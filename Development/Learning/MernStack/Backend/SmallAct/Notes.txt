@@ -3,8 +3,10 @@
 1. Initialize a project called "Small Practice Act" with npm.
 2. Install Express.
 3. Set up Express and basic routing.
+
 4. Set up parsers for forms.
 5. Configure EJS (Embedded JavaScript Templating) for EJS pages.
+
 6. Set EJS as the view engine.
 7. Set up public static files.
 
@@ -156,3 +158,9 @@ small-practice-act/
 - Separate routing logic
 - Keep views minimal and logic-free
 - Use environment variables for configuration
+
+
+
+28th Nov 2024
+# A Todo app 
+-- CDN tailwind
