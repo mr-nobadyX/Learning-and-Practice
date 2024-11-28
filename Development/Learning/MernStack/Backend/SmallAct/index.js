@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res)=>{
     fs.readdir(`./files`, (err, files)=>{
         res.render("index", {files:files});
-    })
+    })  
 })
 
 app.post('/create', (req, res)=>{
