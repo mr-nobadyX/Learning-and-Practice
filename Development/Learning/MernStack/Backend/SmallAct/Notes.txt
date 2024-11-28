@@ -161,8 +161,10 @@ small-practice-act/
 
 
 
-28th Nov 2024
-# A Todo app 
+7th Nov 2024
+
+# A Small Practice 
+
 -- The Struture and style of componets
 ` <div class="main w-full min-h-screen bg-zinc-900">
         <div class="form p-10 text-white">
@@ -189,14 +191,14 @@ small-practice-act/
         </div>
     </div>
 `
--- '/' Route logic, read the file at the that specific folder and render the index.ejs file
+-- "Route logic: read the file in that specific folder and render the index.ejs file."
 app.get('/', (req, res)=>{
     fs.readdir(`./files`, (err, files)=>{
         res.render("index", {files:files});
     })
 })
 
--- after imediallty submit the task goes to '/create' route and makes a file name of the title content and then again redirect to root route
+-- "After immediately submitting the task, it goes to the '/create' route, creates a file named after the title content, and then redirects to the root route."
 app.post('/create', (req, res)=>{
     fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`, req.body.details, (err)=>{
        res.redirect("/");
