@@ -1,0 +1,114 @@
+I'll break this down from an interview perspective, explaining the key concepts and what you need to know:
+
+1. **Basic Setup and Dependencies**
+```javascript
+const express = require('express');
+const app = express();
+const userModel = require('./usermodel');
+```
+**Interview Points:**
+- Express.js is a web framework for Node.js
+- This shows understanding of module imports
+- userModel is likely a Mongoose model for database operations
+
+2. **Root Route**
+```javascript
+app.get("/", (req,res)=>{
+    res.send("Hey");
+})
+```
+**Interview Points:**
+- Demonstrates basic routing in Express
+- Shows understanding of request/response handling
+- Simple endpoint for testing server status
+
+3. **CRUD Operations**
+
+**Create Operation:**
+```javascript
+app.get("/create", async (req,res)=>{
+    let createuser = await userModel.create({
+        name: "Sanju",
+        userName: "BossSanjay",
+        email: "sanju@gmail.com"
+    })
+    res.send(createuser);
+})
+```
+**Key Points:**
+- Uses async/await for asynchronous operations
+- Demonstrates MongoDB's create operation
+- Should typically use POST instead of GET for creation
+
+**Read Operation:**
+```javascript
+app.get("/read", async (req,res)=>{
+    let users = await userModel.findOne({userName: "BossSanjay"});
+    res.send(users);
+})
+```
+**Key Points:**
+- Uses findOne() for querying single document
+- Demonstrates MongoDB read operation
+- GET is the appropriate HTTP method here
+
+**Update Operation:**
+```javascript
+app.get("/update", async (req,res)=>{
+    let updateduser = await userModel.findOneAndUpdate(
+        {name:"Sanju"}, 
+        {userName:"SanjayKushwaha"}, 
+        {new:true}
+    );
+    res.send(updateduser);
+})
+```
+**Key Points:**
+- Uses findOneAndUpdate() for updating documents
+- {new:true} returns the updated document
+- Should typically use PUT/PATCH instead of GET
+
+**Delete Operation:**
+```javascript
+app.get("/delete", async(req,res)=>{
+    let user = await userModel.findOneAndDelete({userName:"BossSanjay"})
+    res.send(user);
+})
+```
+**Key Points:**
+- Uses findOneAndDelete() for removing documents
+- Should typically use DELETE instead of GET
+- Returns the deleted document
+
+4. **Server Initialization**
+```javascript
+app.listen(3000);
+```
+**Key Points:**
+- Starts server on port 3000
+- Basic server configuration
+
+**Common Interview Questions:**
+
+1. Q: "Why are you using GET method for all operations?"
+   A: "This is a basic example, but in production, we should use:
+   - POST for create
+   - GET for read
+   - PUT/PATCH for update
+   - DELETE for delete"
+
+2. Q: "What improvements would you make to this code?"
+   A: "Several improvements could be made:
+   - Add error handling with try-catch
+   - Implement proper HTTP methods
+   - Add input validation
+   - Use environment variables for configuration
+   - Add middleware for request processing
+   - Implement proper response status codes"
+
+3. Q: "Why is async/await used here?"
+   A: "Async/await is used because MongoDB operations are asynchronous. It provides a cleaner way to handle promises and makes the code more readable compared to using .then() chains."
+
+4. Q: "What's the purpose of {new:true} in the update operation?"
+   A: "This option tells MongoDB to return the updated document after the update operation. Without it, the original document would be returned."
+ 
