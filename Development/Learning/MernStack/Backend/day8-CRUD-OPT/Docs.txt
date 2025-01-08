@@ -1,6 +1,6 @@
 I'll break this down from an interview perspective, explaining the key concepts and what you need to know:
 
-1. **Basic Setup and Dependencies**
+1. **The Basic Setup and Dependencies**
 ```javascript
 const express = require('express');
 const app = express();
