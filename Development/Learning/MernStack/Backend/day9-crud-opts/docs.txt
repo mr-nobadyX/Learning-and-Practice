@@ -190,12 +190,3 @@ the logical approach and step-by-step implementation of CRUD operations using No
    - `http://localhost:3000/read` for listing users.
    - `http://localhost:3000/edit/:id` for editing.
 
----
-
-## 5. **Enhancements**
-
-- Add validations for input fields.
-- Handle errors gracefully using `try-catch`.
-- Add a confirmation dialog for deletion.
-- Style the app using CSS or TailwindCSS.
-
