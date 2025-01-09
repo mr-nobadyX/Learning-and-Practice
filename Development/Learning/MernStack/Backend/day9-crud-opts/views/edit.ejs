@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheet/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        document.querySelector("form").addEventListener("submit", () => {
+            setTimeout(() => {
+                document.querySelector("form").reset();
+            }, 100);
+        });
+    </script>
+    
+</head>
+<body>
+    <div class="w-full h-full bg-zinc-900">
+
+        <div class="nav mb-10">
+            <a href="/read" class="text-blue-500">Read users</a>
+        </div>
+
+        <h1 class="bg-blue-500 mb-10">Update user</h1>
+        <hr>
+        <form action="/update/<%= user._id %>" method="post">
+            <input class="px-5 py-2 border-2 border-zinc-800 outline-none rounded" name="name" placeholder="name" type="text" value="<%= user.name %>">
+            <input class="px-5 py-2 border-2 border-zinc-800 outline-none rounded" name="email" placeholder="email" type="email" value="<%= user.email %>">
+            <input class="px-5 py-2 border-2 border-zinc-800 outline-none rounded" name="image" placeholder="image url" type="text" value="<%= user.image %>" >
+            <input type="submit" class="px-5 py-2 text-black bg-yellow-500 rounded-lg ml-3" value="Update User">
+        </form>
+    </div>
+
+</body>
+</html>
