@@ -1,0 +1,167 @@
+# Authentication & Authorization Guide
+
+## 1. Cookie Management 🍪
+
+Cookies are client-side storage mechanisms used to maintain state between requests.
+
+### Setting Cookies
+
+```javascript
+app.get('/set-cookie', (req, res) => {
+    res.cookie('user_preference', 'dark_mode', {
+        maxAge: 24 * 60 * 60 * 1000,  // 24 hours
+        httpOnly: true,                // Prevents JS access
+        secure: true,                  // HTTPS only
+        sameSite: 'strict'            // CSRF protection
+    });
+});
+```
+
+### Reading Cookies
+
+```javascript
+app.get('/read-cookie', (req, res) => {
+    const userPreference = req.cookies.user_preference;
+    console.log(userPreference); // 'dark_mode'
+});
+```
+
+### Key Security Options:
+- `httpOnly`: Prevents XSS attacks by blocking JavaScript access
+- `secure`: Ensures cookies are only sent over HTTPS
+- `sameSite`: Protects against CSRF attacks
+- `maxAge`: Controls cookie lifetime
+
+## 2. Password Encryption with Bcrypt 🔐
+
+Bcrypt is a one-way hashing algorithm specifically designed for passwords.
+
+### Hashing Passwords
+
+```javascript
+const bcrypt = require('bcrypt');
+
+async function hashPassword(password) {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    return hashedPassword;
+}
+```
+
+### Verifying Passwords
+
+```javascript
+async function verifyPassword(password, hashedPassword) {
+    const isValid = await bcrypt.compare(password, hashedPassword);
+    return isValid;
+}
+```
+
+### Why Bcrypt?
+- Automatically handles salt generation and storage
+- Computationally intensive (slows down brute force attacks)
+- Industry standard for password hashing
+
+## 3. JWT (JSON Web Tokens) 🎟️
+
+JWTs are encoded tokens used for secure information transmission.
+
+### Creating JWTs
+
+```javascript
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = 'your-secret-key';
+
+function createToken(userData) {
+    return jwt.sign(
+        userData,
+        JWT_SECRET,
+        { expiresIn: '1h' }
+    );
+}
+```
+
+### Verifying JWTs
+
+```javascript
+function verifyToken(token) {
+    try {
+        const decoded = jwt.verify(token, JWT_SECRET);
+        return decoded;
+    } catch (error) {
+        return null;
+    }
+}
+```
+
+### JWT Structure:
+1. Header: Algorithm & token type
+2. Payload: User data (claims)
+3. Signature: Verification hash
+
+## Common Interview Questions & Answers 📝
+
+### 1. Authentication vs Authorization
+**Q**: What's the difference?
+**A**: Authentication verifies identity ("Are you who you say you are?"), while authorization determines permissions ("Are you allowed to do this?").
+
+### 2. JWT Benefits and Drawbacks
+**Q**: When should you use JWTs?
+**A**: 
+- **Benefits**: 
+  - Stateless (no session storage)
+  - Works well with microservices
+  - Can contain user data
+- **Drawbacks**:
+  - Can't be invalidated before expiration
+  - Payload size increases bandwidth
+  - Need secure storage on client
+
+### 3. Password Security
+**Q**: Why not store passwords in plain text?
+**A**: Plain text storage is vulnerable to:
+- Database breaches
+- Internal threats
+- Legal compliance issues
+Always hash passwords with a strong algorithm like bcrypt.
+
+### 4. Implementing Logout with JWTs
+**Q**: How do you handle JWT logout?
+**A**: Common strategies:
+```javascript
+// 1. Client-side deletion
+app.post('/logout', (req, res) => {
+    res.clearCookie('token');
+    res.json({ message: 'Logged out' });
+});
+
+// 2. Token blacklist (Redis example)
+const blacklistedTokens = new Set();
+app.post('/logout', (req, res) => {
+    blacklistedTokens.add(req.cookies.token);
+    res.clearCookie('token');
+});
+```
+
+## Best Practices 🛡️
+
+1. **Cookie Security**
+   - Always set `httpOnly`, `secure`, and `sameSite`
+   - Use appropriate expiration times
+   - Don't store sensitive data
+
+2. **Password Security**
+   - Use high salt rounds (10+) for bcrypt
+   - Implement rate limiting
+   - Require strong passwords
+
+3. **JWT Security**
+   - Store tokens securely (httpOnly cookies)
+   - Use short expiration times
+   - Implement refresh token rotation
+
+4. **General Security**
+   - Use HTTPS everywhere
+   - Implement rate limiting
+   - Log security events
+   - Regular security audits
