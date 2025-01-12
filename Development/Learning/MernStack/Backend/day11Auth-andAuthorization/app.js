@@ -68,8 +68,5 @@ app.get("/logout", (req, res) => {
 
 app.listen(3000);
 
-// The taks and opts we have to perform
-// create a user
-// mongoose setup, schema, model, usercreate --> password --> hash 
-// jwt token --> token
+
  
