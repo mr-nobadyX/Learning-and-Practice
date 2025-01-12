@@ -72,6 +72,4 @@ app.listen(3000);
 // create a user
 // mongoose setup, schema, model, usercreate --> password --> hash 
 // jwt token --> token
-
-
-// login --> token --> decrypt --> email 
+ 
