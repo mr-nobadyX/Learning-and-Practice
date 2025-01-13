@@ -38,8 +38,6 @@ app.post("/create", async (req, res) => {
     }
 });
 
-// Fix 2: Remove duplicate route
-
 app.post("/login", async (req, res) => {
     try {
         const user = await userModel.findOne({email: req.body.email});
