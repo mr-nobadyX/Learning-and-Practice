@@ -39,7 +39,6 @@ app.post("/create", async (req, res) => {
 });
 
 // Fix 2: Remove duplicate route
-// app.post("/login", (req,res)=>{ ... }) - This should be removed
 
 app.post("/login", async (req, res) => {
     try {
