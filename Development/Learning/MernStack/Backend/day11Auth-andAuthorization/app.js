@@ -56,7 +56,7 @@ app.post("/login", async (req, res) => {
     }
 });
 
-// Fix 4: Added proper logout handling
+// Fix 4: Added proper logout 
 app.get("/logout", (req, res) => {
     res.clearCookie("token");
     res.redirect("/");
