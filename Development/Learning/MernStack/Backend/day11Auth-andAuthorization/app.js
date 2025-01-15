@@ -16,7 +16,6 @@ app.get("/", (req, res)=>{
     res.render('index');
 });
 
-// Fix 1
 app.post("/create", async (req, res) => {
     try {
         const {userName, email, password, age} = req.body;
