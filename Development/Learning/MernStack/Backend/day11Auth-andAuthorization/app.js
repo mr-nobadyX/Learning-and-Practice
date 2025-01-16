@@ -60,7 +60,4 @@ app.get("/logout", (req, res) => {
     res.redirect("/");
 });
 
-app.listen(300);
-
-
- 
+app.listen(3000);
