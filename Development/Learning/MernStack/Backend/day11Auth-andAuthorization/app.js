@@ -74,7 +74,7 @@ app.post("/spacex", async (req, res) => {
         res.cookie("token", token);
         res.send("Login successful");
     } catch (error) {
-        res.status(400).send(error.message);
+        res.status(4000).send(error.message);
     }
 });
 
