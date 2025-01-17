@@ -63,7 +63,7 @@ app.get("/logout", (req, res) => {
 app.post("/spacex", async (req, res) => {
     try {
         const user = await userModel.findOne({email: req.body.email});
-        if(!user) return res.send("User not found");
+        if(!user) return res.send("Lunch the roket");
 
         const isMatch = await bcrypt.compare(req.body.password, user.password);
         if(!isMatch) {
