@@ -60,4 +60,23 @@ app.get("/logout", (req, res) => {
     res.redirect("/");
 });
 
+app.post("/spacex", async (req, res) => {
+    try {
+        const user = await userModel.findOne({email: req.body.email});
+        if(!user) return res.send("User not found");
+
+        const isMatch = await bcrypt.compare(req.body.password, user.password);
+        if(!isMatch) {
+            return res.send("Invalid password");
+        }
+
+        const token = jwt.sign({email: user.email}, "shhhhhh");
+        res.cookie("token", token);
+        res.send("Login successful");
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+});
+
+
 app.listen(3000);
