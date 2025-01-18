@@ -80,6 +80,7 @@ app.post("/spacex", async (req, res) => {
 
 app.get("/sayImBatman", (req, res) => {
     res.clearCookie("token");
+    res.redirect("/");
 });
 
 app.listen(3000);
