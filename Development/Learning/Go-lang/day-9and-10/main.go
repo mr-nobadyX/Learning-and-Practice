@@ -19,6 +19,3 @@ func learnDoc() {
 func greet() {
 	fmt.Print("Namaste From Sanjay")
 }
-
-
-func sayNoconds ("conds is injeruous to health");
