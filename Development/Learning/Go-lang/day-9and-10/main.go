@@ -17,5 +17,4 @@ func learnDoc() {
 }
 
 func greet() {
-	fmt.Print("Namaste From Sanjay")
 }
