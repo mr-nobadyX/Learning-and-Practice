@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 
 app.set("view engine", "ejs");
 app.use(express.json()); // Correctly invoke express.json()
-app.use(express.urlencoded({ extended: true })); // Correctly invoke express.urlencoded()
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
