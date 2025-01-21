@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const userModel = require("./models/user"); // Assuming this file exists and is correct
+const userModel = require("./models/user");
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -13,7 +13,7 @@ app.use(cookieParser());
 
 
 app.get("/", (req, res) => {
-    res.render("index"); // Render the index.ejs file
+    res.render("index"); 
 });
 
 app.post("/register", async (req, res)=>{
