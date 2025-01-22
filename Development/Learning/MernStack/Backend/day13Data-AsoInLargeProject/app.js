@@ -20,7 +20,7 @@ app.post("/register", async (req, res)=>{
     let {email, password, userName, name, age} = req.body;
     
     let user = await userModel.findOne({email});
-    if(user) return res.send(500).send("User Already exits");
+    if(user) return res.send(500).send("User Already Exits");
 
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(password, salt, async(err, hash)=>{
