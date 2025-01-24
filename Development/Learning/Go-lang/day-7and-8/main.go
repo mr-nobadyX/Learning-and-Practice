@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"net/url" // Add this import for URL parsing
+	"net/url"
 )
 
 const MyURL = "https://jsonplaceholder.typicode.com/posts/2"
