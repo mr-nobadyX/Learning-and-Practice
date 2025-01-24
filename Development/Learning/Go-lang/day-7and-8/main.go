@@ -18,8 +18,6 @@ func main() {
 	}
 	defer resp.Body.Close()
 
-	// ====== handling URL in golang ====== \\
-
 	// Parse the URL to get its components
 	parsedURL, err := url.Parse("https://example.com/path?key=value") // Parse the URL using url.Parse
 	if err != nil {
