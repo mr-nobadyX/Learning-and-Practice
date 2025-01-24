@@ -24,7 +24,6 @@ func main() {
 		panic(err)
 	}
 
-	// URL Components
 	// Now print the URL components from parsedURL (not from resp)
 	fmt.Println("Scheme:", parsedURL.Scheme)
 	fmt.Println("Host:", parsedURL.Host)
