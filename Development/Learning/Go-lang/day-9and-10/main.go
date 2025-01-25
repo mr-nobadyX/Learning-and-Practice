@@ -7,6 +7,9 @@ func main() {
 
 	// Doc reads
 	learnDoc()
+
+	// say NO to love
+	saynotoLove()
 }
 
 func learnDoc() {
