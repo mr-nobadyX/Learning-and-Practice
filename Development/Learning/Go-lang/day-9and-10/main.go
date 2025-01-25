@@ -12,3 +12,7 @@ func main() {
 func learnDoc() {
 	fmt.Print("Readed Documentions")
 }
+
+func saynotoLove() {
+	fmt.Print("Love is injrious to health and life")
+}
