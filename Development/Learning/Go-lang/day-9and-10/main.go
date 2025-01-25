@@ -10,6 +10,9 @@ func main() {
 
 	// say NO to love
 	saynotoLove()
+
+	// Say yes to consostency
+	sayYEStoconsistency()
 }
 
 func learnDoc() {
@@ -18,4 +21,8 @@ func learnDoc() {
 
 func saynotoLove() {
 	fmt.Print("Love is injrious to health and life")
+}
+
+func sayYEStoconsistency() {
+	fmt.Print("we should have to consitecny to get exclelce")
 }
