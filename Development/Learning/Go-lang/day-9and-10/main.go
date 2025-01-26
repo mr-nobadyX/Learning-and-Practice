@@ -10,9 +10,6 @@ func main() {
 
 	// say NO to love
 	saynotoLove()
-
-	// Say yes to consostency
-	sayYEStoconsistency()
 }
 
 func learnDoc() {
