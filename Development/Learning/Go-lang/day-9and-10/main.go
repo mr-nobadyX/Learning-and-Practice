@@ -22,7 +22,3 @@ func learnDoc() {
 func saynotoLove() {
 	fmt.Print("Love is injrious to health and life")
 }
-
-func sayYEStoconsistency() {
-	fmt.Print("we should have to consitecny to get exclelce")
-}
