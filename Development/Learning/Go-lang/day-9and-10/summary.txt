@@ -12,6 +12,8 @@ func main() {
 	learnDoc()
 }
 
+
+// Basic function syntx and how to revoke a funxtion is over there
 func learnDoc() {
 	fmt.Print("Readed Documentions")
 }
