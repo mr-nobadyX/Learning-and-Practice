@@ -17,3 +17,70 @@ func main() {
 func learnDoc() {
 	fmt.Print("Readed Documentions")
 }
+
+
+// =============== Make an HTTP GET request to the URL =============== \\
+
+	// 'resp' will contain the response
+	// 'err' will contain any error that occurred
+	resp, err := http.Get("https://jsonplaceholder.typicode.com/posts/2")
+
+	// Check if there was an error
+	if err != nil {
+		panic(err) // If there was an error, stop the program
+	}
+
+	// defer means this line will run at the end of the function
+	// This ensures we close the response body and don't leak memory
+	defer resp.Body.Close()
+
+	// Read all the content from the response body
+	// 'content' will contain the data as a slice of bytes
+	content, err := ioutil.ReadAll(resp.Body)
+
+	// Check for errors again
+	if err != nil {
+		panic(err)
+	}
+
+	// Convert the bytes to a string and print it
+	fmt.Println(string(content))
+
+
+
+
+
+// ====== handling URL in golang ====== \\
+
+	// Parse the URL to get its components
+	parsedURL, err := url.Parse("https://example.com/path?key=value") // Parse the URL using url.Parse
+	if err != nil {
+		panic(err)
+	}
+
+	// URL Components
+	// Now print the URL components from parsedURL (not from resp)
+	fmt.Println("Scheme:", parsedURL.Scheme)
+	fmt.Println("Host:", parsedURL.Host)
+	fmt.Println("Host:", parsedURL.Path)
+	fmt.Println("Host:", parsedURL.Port())
+	fmt.Println("Host:", parsedURL.RawQuery)
+
+	// Get all query parameters
+	params := parsedURL.Query() // Returns url.Values (map[string][]string)
+
+	// Read specific parameter
+	value := params.Get("key")
+
+	fmt.Println(value)
+
+	newURL := &url.URL{
+		Scheme:   "https",
+		Host:     "example.com",
+		Path:     "/api",
+		RawQuery: "key=value",
+	}
+	urlString := newURL.String()
+
+	fmt.Println(urlString)
+
