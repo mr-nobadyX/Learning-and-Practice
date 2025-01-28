@@ -2,17 +2,6 @@
 package main
 
 import "fmt"
-
-
-// Here is the main function which exocute everything in that code file
-func main() {
-	fmt.Printf("fmt.Println('Namaste, creating a web Server')")
-
-	// Doc reads
-	learnDoc()
-}
-
-
 // Basic function syntx and how to revoke a funxtion is over there
 func learnDoc() {
 	fmt.Print("Readed Documentions")
