@@ -1,0 +1,36 @@
+// Initilizing the package of go lan using the package main;
+package main
+
+import "fmt"
+// Basic function syntx and how to revoke a funxtion is over there
+func learnDoc() {
+	fmt.Print("Readed Documentions")
+}
+
+
+// =============== Make an HTTP GET request to the URL =============== \\
+
+	// 'resp' will contain the response
+	// 'err' will contain any error that occurred
+	resp, err := http.Get("https://jsonplaceholder.typicode.com/posts/2")
+
+	// Check if there was an error
+	if err != nil {
+		panic(err) // If there was an error, stop the program
+	}
+
+	// defer means this line will run at the end of the function
+	// This ensures we close the response body and don't leak memory
+	defer resp.Body.Close()
+
+	// Read all the content from the response body
+	// 'content' will contain the data as a slice of bytes
+	content, err := ioutil.ReadAll(resp.Body)
+
+	// Check for errors again
+	if err != nil {
+		panic(err)
+	}
+
+	// Convert the bytes to a string and print it
+	fmt.Println(string(content))
