@@ -1,12 +1,3 @@
-// Initilizing the package of go lan using the package main;
-package main
-
-import "fmt"
-// Basic function syntx and how to revoke a funxtion is over there
-func learnDoc() {
-	fmt.Print("Readed Documentions")
-}
-
 
 // =============== Make an HTTP GET request to the URL =============== \\
 
