@@ -15,6 +15,7 @@ app.use(cookieParser());
 
 app.get("/", (req, res) => {
     res.render("index"); 
+    console.log("Moving fine");
 });
 
 app.post("/register", async (req, res)=>{
