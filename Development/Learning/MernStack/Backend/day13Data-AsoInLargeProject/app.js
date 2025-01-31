@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const port = 300;
 
 const userModel = require("./models/user");
 const cookieParser = require('cookie-parser');
@@ -35,6 +36,6 @@ app.post("/register", async (req, res)=>{
     });
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("Server running on http://localhost:3000");
 });
