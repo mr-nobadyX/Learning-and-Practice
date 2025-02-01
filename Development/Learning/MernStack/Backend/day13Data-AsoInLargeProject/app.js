@@ -37,5 +37,5 @@ app.post("/register", async (req, res)=>{
 })
 
 app.listen(port, () => {
-    console.log(`"Server running on http://localhost:{Port}"`);
+    console.log(`"Server running on http://localhost:3000"`);
 });
