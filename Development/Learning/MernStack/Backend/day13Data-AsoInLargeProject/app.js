@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 300;
+const port = 3000;
 
 const userModel = require("./models/user");
 const cookieParser = require('cookie-parser');
