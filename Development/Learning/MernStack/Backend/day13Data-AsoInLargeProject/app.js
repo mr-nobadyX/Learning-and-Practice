@@ -30,7 +30,7 @@ app.post("/register", async (req, res)=>{
                 name, age, email,
                 password: hash,
             });
-
+            
             jwt.sign({email:email, userid: user._id}, "PassKey")
         }) 
     });
