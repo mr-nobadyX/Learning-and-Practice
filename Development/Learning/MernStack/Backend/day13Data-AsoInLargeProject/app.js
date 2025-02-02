@@ -17,6 +17,10 @@ app.get("/", (req, res) => {
     res.render("index"); 
 });
 
+app.get("/SayYestoGod", (req, res) => {
+    console.log("Say Yes to Belive in God"); 
+});
+
 app.post("/register", async (req, res)=>{
     let {email, password, userName, name, age} = req.body;
     
@@ -30,7 +34,7 @@ app.post("/register", async (req, res)=>{
                 name, age, email,
                 password: hash,
             });
-            
+
             jwt.sign({email:email, userid: user._id}, "PassKey")
         }) 
     });
