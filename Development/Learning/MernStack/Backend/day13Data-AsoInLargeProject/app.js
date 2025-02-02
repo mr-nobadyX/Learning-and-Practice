@@ -18,6 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/SayYestoGod", (req, res) => {
+    res.sendFile("index");
     console.log("Say Yes to Belive in God"); 
 });
 
