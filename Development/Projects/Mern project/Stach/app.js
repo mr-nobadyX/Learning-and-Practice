@@ -7,8 +7,8 @@ const path = require("path");
 const db = require("./config/mongoose-connection");
 
 const ownersRouter = require("./routes/ownersRouter");
-const usersRouter = require("./routes/usersRouter");   // ✅ Corrected
-const productsRouter = require("./routes/productsRouter");  // ✅ Corrected
+const usersRouter = require("./routes/usersRouter");  
+const productsRouter = require("./routes/productsRouter");   
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
