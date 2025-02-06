@@ -25,6 +25,10 @@ app.get("/", (req, res) => {
     res.send("Hey, working fine");
 });
 
+app.get("/start", (req, res) => {
+    res.send("Hey, start works fine");
+});
+
 app.listen(port, () => {
     console.log("Server running on port 3000");
 });
