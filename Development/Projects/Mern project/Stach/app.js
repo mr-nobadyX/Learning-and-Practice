@@ -26,7 +26,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/start", (req, res) => {
-    res.send("Hey, start works fine");
 });
 
 app.listen(port, () => {
