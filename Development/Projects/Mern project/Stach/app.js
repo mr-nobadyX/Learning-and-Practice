@@ -23,6 +23,7 @@ app.use("/products", productsRouter);
 
 app.get("/", (req, res) => {
     res.send("Hey, working fine");
+    console.log(req);
 });
 
 app.listen(port, () => {
