@@ -23,8 +23,9 @@ app.use("/products", productsRouter);
 
 app.get("/", (req, res) => {
     res.send("Hey, working fine");
-    console.log(req);
 });
+
+console.log(db);
 
 app.listen(port, () => {
     console.log("Server running on port " + port);
