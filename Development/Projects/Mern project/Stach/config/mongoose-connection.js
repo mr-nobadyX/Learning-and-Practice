@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const config = require("config");
 
-
+const dgbr = require("Debug")("Development:MOngoose");
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/stach", {
@@ -8,7 +9,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("Connected to MongoDB");
+    dgbr("connected");
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err);
