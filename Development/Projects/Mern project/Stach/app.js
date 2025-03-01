@@ -2,7 +2,7 @@ const express = require("express"); // Web framework
 const app = express();
 const port = 3000;
 
-const cookieParser = require("cookie-parser"); // Cookie parsing for making a good conecctions :)
+const cookieParser = require("cookie-parser"); // Cookie parsing
 const path = require("path"); // Path utilities
 
 const db = require("./config/mongoose-connection"); // DB connection
