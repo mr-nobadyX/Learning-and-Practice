@@ -22,7 +22,7 @@ app.use("/users", usersRouter); // Mount user routes
 app.use("/products", productsRouter); // Mount product routes
 
 app.get("/", (req, res) => {
-    res.send("Hey, working fine"); // Basic route
+    res.send("Hey, working fine"); // Basic route for checks
 });
 
 app.listen(port, () => {
