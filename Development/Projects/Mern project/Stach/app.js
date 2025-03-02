@@ -1,4 +1,4 @@
-const express = require("express"); // Web framework
+const express = require("express"); // Web framework Technology 
 const app = express();
 const port = 3000;
 
