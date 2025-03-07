@@ -27,5 +27,5 @@ app.get("/", (req, res) => {
 
 app.listen(port, () => {
     console.log("Server running on port " + port);
-    console.log(db); // Log DB connection
+    console.log(db); // Log the DB connection
 });
