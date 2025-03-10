@@ -35,7 +35,7 @@ const App = () => {
       <Card title="Interstealer" rating={10} />
       <Card title="WTF" rating={30} />
       <Card title="tenet" rating={20} />
-      <h2>Working fine, say hello to React JS</h2>
+      <h2>Working fine, say hello to React JS AND NOTHINGelse</h2>
     </div>
   );
 };
